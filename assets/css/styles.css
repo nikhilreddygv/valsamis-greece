@@ -111,7 +111,7 @@ a { text-decoration: none; color: inherit; }
 /* Hero */
 .hero {
   background: linear-gradient(rgba(7,31,54,0.75), rgba(7,31,54,0.75)),
-              url('../img/hero-placeholder.svg') center/cover no-repeat;
+              url('../img/hero-bg.jpg') center/cover no-repeat;
   color: var(--white);
   text-align: center;
   padding: 7rem 20px;
