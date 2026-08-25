@@ -58,7 +58,14 @@ a { text-decoration: none; color: inherit; }
   gap: 6px;
 }
 .topbar-contact span { margin-right: 1rem; }
-.topbar-social a { margin-left: 0.6rem; opacity: 0.8; }
+.topbar-social { display: flex; align-items: center; }
+.topbar-social a {
+  display: flex;
+  align-items: center;
+  margin-left: 0.6rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
 .topbar-social a:hover { opacity: 1; }
 
 /* Header */
