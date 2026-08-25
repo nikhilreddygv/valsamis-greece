@@ -77,4 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
     slideshow.addEventListener('mouseenter', stopAutoplay);
     slideshow.addEventListener('mouseleave', startAutoplay);
   }
+
+  // Service card flip — tap-to-flip for touch, Enter/Space for keyboard
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.classList.toggle('flipped');
+      }
+    });
+  });
 });
