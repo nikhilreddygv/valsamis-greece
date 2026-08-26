@@ -1,6 +1,17 @@
 # Valsamis Greece — Site
 
-Single-page brochure site for the Greece branch, modeled on valsamis.com. Plain HTML/CSS/JS, no build step, no backend, no database.
+Single-page brochure site for the Greece branch. Plain HTML/CSS/JS, no build step, no backend, no database.
+
+Live at [valsamis.com.gr](https://valsamis.com.gr), hosted on Netlify, deployed automatically from the `main` branch.
+
+## Structure
+
+- `index.html` — all page content and section markup
+- `privacy.html` — privacy policy page
+- `assets/css/styles.css` — layout, colors, responsive rules
+- `assets/js/script.js` — mobile nav toggle, about-section slideshow, service card flip, footer year
+- `assets/img/` — site images (logo, hero background, about-section slideshow photos)
+- `assets/img/about-slideshow/` — photos for the About section slideshow; drop new images in here and add the filename to the `slideImages` array in `script.js`
 
 ## Preview locally
 
@@ -10,23 +21,25 @@ Open `index.html` directly in a browser, or serve it so relative paths behave ex
 npx serve .
 ```
 
-## Structure
+## Working on this repo
 
-- `index.html` — all page content and section markup
-- `assets/css/styles.css` — layout, colors, responsive rules
-- `assets/js/script.js` — mobile nav toggle, footer year
-- `assets/img/` — placeholder SVGs to swap for real photos
+`main` is protected — changes go through a pull request, not a direct push. For any task:
 
-## Replacing placeholder content
+```
+git checkout -b your-branch-name
+# make changes, commit
+git push origin your-branch-name
+```
 
-Every spot that needs real Greece-branch info is marked `[PLACEHOLDER ...]` in `index.html`. Search for `PLACEHOLDER` to find them all:
+Then open a PR into `main` on GitHub. Netlify deploys automatically once it's merged.
 
-- Contact info (phone, email, address) in the top bar and Contact section
-- About Us copy (overview, mission/vision, personnel, premises)
-- Real photos in `assets/img/` (replace the `.svg` placeholders with `.jpg`/`.png` and update the `src` attributes in `index.html`)
-- Projects section — swap in actual project names/photos
-- Form `action` attributes for Newsletter and Contact — point these at whatever form-handling service you choose (e.g. Formspree, Getform) since there's no backend here to receive submissions
+## Open items
+
+- **Services grid** below the current Services section: a "Customers We Work With" logo strip, similar to the one on valsamis.com — needs client logo files before it can be built.
+- **HVAC, Projects, and Newsletter sections** were removed from the live site until there's real content for them (previously placeholder-only). Rebuild these once there's actual copy/photos/project entries to put in.
+- **Contact form** doesn't submit anywhere yet (`action` attribute is unset) — needs a form-handling backend wired up (Netlify Forms is the planned approach, since the site's already hosted there).
+- **Privacy Policy** is currently English-only; a Greek-language version still needs to be added.
 
 ## Deploying
 
-Any static host works (Netlify, Vercel, GitHub Pages, or plain shared hosting via FTP) — upload the folder as-is once `valsamis.com.gr` is pointed at it.
+Hosted on Netlify, connected to this GitHub repo. Pushing to `main` (via merged PR) triggers an automatic redeploy — no manual deploy steps needed.
